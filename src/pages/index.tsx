@@ -1,115 +1,123 @@
 import Image from "next/image";
-import localFont from "next/font/local";
+import Layout from "../components/layout";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export default function Home() {
+const Home = () => {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <Layout>
+      <div className="2xl:w-[70%]">
+        <div className="flex items-center gap-x-5">
+          <Image src={"/sample-img.png"} alt="img" width={0} height={0} sizes="100vw" className="w-auto h-auto" />
+          <div className="flex flex-col">
+            <h2 className="text-3xl">Dara & Arifin Weddings</h2>
+            <div className="flex items-center gap-x-2">
+              <p className="text-sm">Event start: 13 Aug 2024</p>
+              <span className="bg-primary/15 text-primary font-medium px-3 py-1 rounded-md">Plan: Lite</span>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="flex gap-x-10 mt-10">
+          <Card className="flex-1">
+            <CardHeader>
+              <CardTitle>Shared Album</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex w-full max-w-md items-center space-x-2">
+                <Input type="email" defaultValue={"fotoslide.com/nu38hy"} />
+                <Button type="submit">OPEN</Button>
+              </div>
+              <p className="mt-5 text-xs text-muted">
+                The digital album lets your guests upload new photos or view
+                existing ones. Share it with your guests via a direct link or
+                using its unique QR code (print it or display it digitally).
+              </p>
+
+              <div className="flex gap-x-5 mt-10">
+                <div className="flex flex-col space-y-3 items-center h-full">
+                  <div className="">
+                    <Image
+                      src={"/barcode.png"}
+                      alt="barcode"
+                      width={100}
+                      height={100}
+                    />
+                    <span className="underline text-sm invisible">as</span>
+                  </div>
+                  <Button>DOWNLOAD QR CODE</Button>
+                </div>
+                <div className="flex flex-col text-center space-y-3 items-center h-full">
+                  <div className="">
+                    <Image
+                      src={"/barcode.png"}
+                      alt="barcode"
+                      width={100}
+                      height={100}
+                    />
+                    <span className="underline text-sm">Edit Card</span>
+                  </div>
+                  <Button variant={"outline"}>DOWNLOAD QR CARD</Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="flex-1">
+            <CardHeader>
+              <CardTitle>Slide Show</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex w-full max-w-md items-center space-x-2">
+                <Input
+                  type="email"
+                  defaultValue={"fotoslide.com/show/nu38hy"}
+                />
+                <Button type="submit">OPEN</Button>
+              </div>
+              <p className="mt-5 text-xs text-muted">
+                Every upload to your digital album automatically appears on your
+                SlideShow. Connect it to video projectors, TVs, or anywhere your
+                guests can easily find it.
+              </p>
+
+              <div className="mt-10">
+                <div className="bg-black rounded-md p-5 text-white flex flex-col items-center text-center space-y-4">
+                  <p>Scan to view or Add photos!</p>
+                  <Image
+                    src={"/barcode.png"}
+                    alt="barcode"
+                    width={100}
+                    height={100}
+                  />
+                </div>
+
+                <div className="flex items-center justify-between mt-5">
+                  <div className="flex items-center gap-x-5">
+                    <p className="text-xs">Display On</p>
+                    <div className="flex items-center gap-x-2">
+                      <Image src={"/projector.svg"} alt="icon" width={30} height={20} />
+                      <Image src={"/pc.svg"} alt="icon" width={30} height={20} />
+                      <Image src={"/laptop.svg"} alt="icon" width={30} height={20} />
+                    </div>
+                  </div>
+
+                  <Link href={"/"} className="text-xs text-primary underline font-medium">How to do it?</Link>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </Layout>
   );
-}
+};
+
+export default Home;
